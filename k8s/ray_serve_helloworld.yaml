@@ -2,7 +2,7 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: ray-test-job
+  name: ray-serve-helloworld
 spec:
   template:
     spec:
@@ -13,8 +13,8 @@ spec:
           imagePullPolicy: Always
           command: [ "/bin/bash", "-c", "--" ]
           args:
-            - "wget https://raw.githubusercontent.com/ray-project/ray/master/doc/kubernetes/example_scripts/job_example.py &&
-              python job_example.py"
+            - "wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/ray_serve_helloworld.py &&
+              python ray_serve_helloworld.py"
           resources:
             requests:
               cpu: 100m
