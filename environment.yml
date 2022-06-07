@@ -1,4 +1,4 @@
-name: ray_serve
+name: base
 channels:
   - defaults
 dependencies:
