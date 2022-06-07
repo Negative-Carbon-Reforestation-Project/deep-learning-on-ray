@@ -14,9 +14,6 @@ spec:
           command: [ "/bin/bash", "-c", "--" ]
           args:
             - "wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/ray_serve_helloworld.py &&
-              wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/environment.yml &&
-              conda env create -f environment.yml &&
-              conda activate ./envs &&
               python ray_serve_helloworld.py"
           resources:
             requests:
