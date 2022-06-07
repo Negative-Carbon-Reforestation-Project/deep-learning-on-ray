@@ -2,7 +2,7 @@ name: ray_serve
 channels:
   - defaults
 dependencies:
-  - sklearn
   - pip:
       - ray
       - ray[serve]
+      - sklearn
