@@ -5,6 +5,8 @@ from sklearn.ensemble import GradientBoostingClassifier
 
 from ray import serve
 
+serve.init('ray://ray-ray-head:10001')
+
 serve.start()
 
 # Train model.
