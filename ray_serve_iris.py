@@ -1,4 +1,4 @@
-import requests
+import time
 
 from sklearn.datasets import load_iris
 from sklearn.ensemble import GradientBoostingClassifier
@@ -30,3 +30,8 @@ class BoostingModel:
 
 # Deploy model.
 BoostingModel.deploy(model)
+
+while True:
+    time.sleep(5)
+    print(serve.list_deployments())
+

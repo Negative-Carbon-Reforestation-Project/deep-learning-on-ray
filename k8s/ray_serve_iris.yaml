@@ -9,17 +9,12 @@ spec:
       restartPolicy: Never
       containers:
         - name: ray
-          image: rayproject/ray:latest
-          imagePullPolicy: Always
+          image: 124704454835.dkr.ecr.us-west-2.amazonaws.com/ray-with-sklearn:latest
+          imagePullPolicy: Never
           command: [ "/bin/bash", "-c", "--" ]
           args:
             - "wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/ray_serve_iris.py &&
-              wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/environment.yml &&
-              conda env create -f environment.yml &&
-              echo 'conda init bash' &&
-              conda init bash &&
-              echo 'activate ray_serve' &&
-              conda activate ray_serve &&
+              pip install sklearn &&
               python ray_serve_iris.py"
           resources:
             requests:
