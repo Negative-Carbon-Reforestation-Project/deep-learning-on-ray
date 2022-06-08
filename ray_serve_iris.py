@@ -1,11 +1,12 @@
 import time
+import ray
 
 from sklearn.datasets import load_iris
 from sklearn.ensemble import GradientBoostingClassifier
 
 from ray import serve
 
-serve.init('ray://ray-ray-head:10001')
+ray.init('ray://ray-ray-head:10001')
 
 serve.start()
 
