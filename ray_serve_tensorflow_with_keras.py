@@ -3,7 +3,7 @@ from ray import serve
 import os
 import tempfile
 import numpy as np
-import requests
+import ray
 
 TRAINED_MODEL_PATH = os.path.join(tempfile.gettempdir(), "mnist_model.h5")
 
