@@ -10,11 +10,10 @@ spec:
       containers:
         - name: ray
           image: 124704454835.dkr.ecr.us-west-2.amazonaws.com/ray-with-sklearn:latest
-          imagePullPolicy: Never
+          imagePullPolicy: Always
           command: [ "/bin/bash", "-c", "--" ]
           args:
             - "wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/ray_serve_iris.py &&
-              pip install sklearn &&
               python ray_serve_iris.py"
           resources:
             requests:
