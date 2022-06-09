@@ -5,9 +5,8 @@ import os
 import tempfile
 import numpy as np
 
-TRAINED_MODEL_PATH = str(f'./mnist_model.h5')
+print(os.getcwd())
 
-print(os.path)
 
 def train_and_save_model():
     import tensorflow as tf
@@ -34,7 +33,7 @@ def train_and_save_model():
     model.summary()
 
     # Save the model in h5 format in local file system
-    model.save(TRAINED_MODEL_PATH)
+    # model.save(TRAINED_MODEL_PATH)
 
 
 if not os.path.exists(TRAINED_MODEL_PATH):
@@ -43,11 +42,11 @@ if not os.path.exists(TRAINED_MODEL_PATH):
 
 @serve.deployment(route_prefix="/mnist")
 class TFMnistModel:
-    def __init__(self, model_path):
+    def __init__(self):
         import tensorflow as tf
 
-        self.model_path = model_path
-        self.model = tf.keras.models.load_model(model_path)
+        # self.model_path = model_path
+        # self.model = tf.keras.models.load_model(model_path)
 
     async def __call__(self, starlette_request):
         # Step 1: transform HTTP request -> tensorflow input
@@ -64,4 +63,4 @@ class TFMnistModel:
 
 ray.init('ray://ray-ray-head:10001')
 serve.start()
-TFMnistModel.deploy(TRAINED_MODEL_PATH)
+TFMnistModel.deploy()
