@@ -14,6 +14,9 @@ spec:
           command: [ "/bin/bash", "-c", "--" ]
           args:
             - "wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/ray_serve_tensorflow_with_keras.py &&
+              wget https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/models/mnist_model.h5 &&
+              mkdir models &&
+              mv ./mnist_model.h5 ./models &&
               python ray_serve_tensorflow_with_keras.py"
           resources:
             requests:
