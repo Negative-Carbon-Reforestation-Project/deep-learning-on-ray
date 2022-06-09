@@ -2,7 +2,7 @@ import ray
 from ray import serve
 
 import os
-import tempfile
+import time
 import numpy as np
 
 print(os.getcwd())
@@ -64,3 +64,7 @@ class TFMnistModel:
 ray.init('ray://ray-ray-head:10001')
 serve.start()
 TFMnistModel.deploy()
+
+while True:
+    time.sleep(5)
+    print(serve.list_deployments())
