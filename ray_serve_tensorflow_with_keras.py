@@ -1,11 +1,12 @@
+import ray
 from ray import serve
 
 import os
 import tempfile
 import numpy as np
-import ray
 
 TRAINED_MODEL_PATH = os.path.join(tempfile.gettempdir(), "mnist_model.h5")
+
 
 def train_and_save_model():
     import tensorflow as tf
@@ -38,6 +39,7 @@ def train_and_save_model():
 if not os.path.exists(TRAINED_MODEL_PATH):
     train_and_save_model()
 
+
 @serve.deployment(route_prefix="/mnist")
 class TFMnistModel:
     def __init__(self, model_path):
@@ -62,4 +64,3 @@ class TFMnistModel:
 ray.init('ray://ray-ray-head:10001')
 serve.start()
 TFMnistModel.deploy(TRAINED_MODEL_PATH)
-
