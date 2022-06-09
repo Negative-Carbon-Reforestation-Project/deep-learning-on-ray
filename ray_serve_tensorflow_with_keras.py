@@ -5,7 +5,7 @@ import os
 import tempfile
 import numpy as np
 
-TRAINED_MODEL_PATH = str(f'/tmp/mnist_model.h5')
+TRAINED_MODEL_PATH = str(f'mnist_model.h5')
 
 
 def train_and_save_model():
