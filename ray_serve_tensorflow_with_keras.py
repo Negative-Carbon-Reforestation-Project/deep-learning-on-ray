@@ -36,8 +36,8 @@ def train_and_save_model():
     # model.save(TRAINED_MODEL_PATH)
 
 
-if not os.path.exists(TRAINED_MODEL_PATH):
-    train_and_save_model()
+# if not os.path.exists(TRAINED_MODEL_PATH):
+#     train_and_save_model()
 
 
 @serve.deployment(route_prefix="/mnist")
