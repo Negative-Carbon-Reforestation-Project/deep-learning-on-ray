@@ -10,7 +10,7 @@ class ReforestationModel:
         import time
 
     async def __call__(self, starlette_request):
-        print(starlette_request)
+        print((await starlette_request.json()))
         return {"prediction": 69}
 
 
