@@ -27,8 +27,8 @@ def get_token(id, secret):
 
 
 def expand_window(meter_length, geometry):
-    return [geometry[0] - (meter_length / 2), geometry[1] + (meter_length / 2),
-            geometry[2] + (meter_length / 2), geometry[3] - (meter_length / 2)]
+    return [geometry[0] - meter_length, geometry[1] + meter_length,
+            geometry[2] + meter_length, geometry[3] - meter_length]
 
 
 def download_image(token, bbox, size):
@@ -64,7 +64,7 @@ with open(args.data, 'r') as images:
     for image in images:
         print(f'\rDownloading Image {count}/{length}', end=' ')
         image_json = ast.literal_eval(image)
-        window_size = args.extent
+        window_size = args.extent + 30
         image_size = math.floor(window_size / 0.3)
         geometry = expand_window(window_size, image_json['geo'])
         file = open(f'{args.path}/{image_json["ident"]}_{image_json["value"]}.png', 'wb')
