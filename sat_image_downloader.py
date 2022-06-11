@@ -25,6 +25,10 @@ def get_token(id, secret):
     token = response["access_token"]
     return token
 
+def refresh_token():
+    with open(args.credentials, 'r') as creds:
+        cred_dict = json.load(creds)
+        return get_token(cred_dict['id'], cred_dict['secret'])
 
 def expand_window(meter_length, geometry):
     return [geometry[0] - meter_length, geometry[1] + meter_length,
@@ -53,15 +57,15 @@ if not os.path.exists(args.path):
     print('Creating folder at ', args.path)
     os.makedirs(args.path)
 
-bearer_token = ''
-with open(args.credentials, 'r') as creds:
-    cred_dict = json.load(creds)
-    bearer_token = get_token(cred_dict['id'], cred_dict['secret'])
+bearer_token = refresh_token()
 
 with open(args.data, 'r') as images:
     length = 30000
     count = 1
     for image in images:
+        if count % 500 == 0:
+            print('refreshing token')
+            bearer_token = refresh_token()
         print(f'\rDownloading Image {count}/{length}', end=' ')
         image_json = ast.literal_eval(image)
         window_size = args.extent + 30
