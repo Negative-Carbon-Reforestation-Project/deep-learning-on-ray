@@ -1,6 +1,11 @@
-name: ray_serve
+name: deep_learning_on_ray
 channels:
   - defaults
 dependencies:
+  - python=3.9.12
+  - pandas
+  - tensorflow
+  - requests
   - pip:
-      - sklearn
+      - jupyter
+      - seaborn

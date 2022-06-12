@@ -130,3 +130,6 @@ dmypy.json
 
 #jetbrains
 .idea
+
+#downloaded_images
+images

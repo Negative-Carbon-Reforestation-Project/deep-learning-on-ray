@@ -5,7 +5,7 @@ import os
 import time
 import numpy as np
 
-TRAINED_MODEL_PATH = './models/mnist_model.h5'
+TRAINED_MODEL_PATH = '../../models/mnist_model.h5'
 
 
 def train_and_save_model():
