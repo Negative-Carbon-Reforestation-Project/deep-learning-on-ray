@@ -10,8 +10,7 @@ class ReforestationModel:
         import time
 
     async def __call__(self, starlette_request):
-        print((await starlette_request.body()))
-        return {"prediction": 69}
+        return await starlette_request.body()
 
 
 ray.init('ray://ray-ray-head:10001')
