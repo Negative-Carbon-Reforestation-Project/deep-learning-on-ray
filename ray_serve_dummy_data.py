@@ -7,10 +7,11 @@ from ray import serve
 @serve.deployment(route_prefix="/opportunity")
 class ReforestationModel:
     def __init__(self):
-        import time
+        import json
+        import requests
 
     async def __call__(self, starlette_request):
-        return await starlette_request.body()
+        return "{'prediction': 69}"
 
 
 ray.init('ray://ray-ray-head:10001')
