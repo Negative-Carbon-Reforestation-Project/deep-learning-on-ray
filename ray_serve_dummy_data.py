@@ -11,7 +11,7 @@ class ReforestationModel:
         import requests
 
     async def __call__(self, starlette_request):
-        return "{'prediction': 69}"
+        return '{"prediction": 69}'
 
 
 ray.init('ray://ray-ray-head:10001')
