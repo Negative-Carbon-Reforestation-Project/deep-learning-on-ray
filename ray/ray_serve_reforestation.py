@@ -24,7 +24,7 @@ class ReforestationModel:
         from pyproj import Proj, transform
 
     async def __call__(self, starlette_request):
-        request = await starlette_request.body()
+        request = await starlette_request.json()
         longitude = float(request['longitude'])
         latitude = float(request['latitude'])
 
