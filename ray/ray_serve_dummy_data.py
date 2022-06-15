@@ -15,7 +15,7 @@ class ReforestationModel:
 
 
 ray.init('ray://ray-ray-head:10001')
-serve.start()
+serve.start(http_options={'host': '0.0.0.0'})
 ReforestationModel.deploy()
 
 while True:
