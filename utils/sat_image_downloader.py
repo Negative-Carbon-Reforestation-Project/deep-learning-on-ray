@@ -6,7 +6,7 @@ import ast
 import requests
 import os
 
-parser = argparse.ArgumentParser(description="Download satellite images from arcGIS")
+parser = argparse.ArgumentParser(description="Download satellite images from arcGIS.cred")
 parser.add_argument('credentials', type=str, help='path to credential file for OAuth2.0')
 parser.add_argument('data', type=str, help='path to file of json objects representing images')
 parser.add_argument('path', type=str, help='path to save images to')

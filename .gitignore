@@ -136,6 +136,7 @@ dmypy.json
 images
 images2
 images3
+images4
 
-#Trained Models
-models
+#docker stuff
+Docker/resources

@@ -1,9 +1,8 @@
 FROM rayproject/ray:latest
 USER root
 RUN pip install --no-input tensorflow
-RUN conda install fiona
-RUN conda install rasterio
-RUN conda install -c conda-forge rvlib
-RUN pip install --no-input georasters
+RUN pip install --no-input pyproj
 RUN mkdir $HOME/models
-ADD https://raw.githubusercontent.com/Negative-Carbon-Reforestation-Project/deep-learning-on-ray/main/models/mnist_model.h5 $HOME/models/
+RUN mkdir $HOME/resources
+COPY ncrp-reforestation_alpha.h5 $HOME/models/
+ADD https://pastebin.com/jX3CFUi4 $HOME/resources/
