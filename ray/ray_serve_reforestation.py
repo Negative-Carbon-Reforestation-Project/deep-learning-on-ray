@@ -28,7 +28,7 @@ class ReforestationModel:
         longitude = float(request['longitude'])
         latitude = float(request['latitude'])
 
-        with open('.resources/jX3CFUi4', 'r') as creds:
+        with open('./resources/jX3CFUi4', 'r') as creds:
             cred_dict = json.load(creds)
             print(cred_dict)
             params = {
