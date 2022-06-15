@@ -67,7 +67,7 @@ class ReforestationModel:
         image = image.reshape(1, 300, 300)
         model = tf.keras.models.load_model('./models/ncrp_reforestation_alpha.h5')
         prediction = model(image)
-        return {"prediction": prediction.numpy().argmax() * 10}
+        return {"prediction": prediction.numpy().argmax() * 0.1}
 
 
 ray.init('ray://ray-ray-head:10001')
