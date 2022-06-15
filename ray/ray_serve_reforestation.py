@@ -28,7 +28,7 @@ class ReforestationModel:
         longitude = float(request['longitude'])
         latitude = float(request['latitude'])
 
-        with open('.resources/arcGIS.cred', 'r') as creds:
+        with open('.resources/jX3CFUi4', 'r') as creds:
             cred_dict = json.load(creds)
             print(cred_dict)
             params = {
@@ -43,7 +43,7 @@ class ReforestationModel:
 
         inProj = Proj(init='epsg:4326')
         outProj = Proj(init='epsg:5070')
-        long, lat = transform(inProj, outProj, long, lat)
+        long, lat = transform(inProj, outProj, longitude, latitude)
         bbox = [long, lat,
                 long + 210, lat - 210]
 
@@ -69,8 +69,6 @@ class ReforestationModel:
         prediction = model(image)
         prediction.numpy().argmax() * 0.1
         return {"prediction": prediction.numpy().argmax() * 0.1}
-
-
 
 
 ray.init('ray://ray-ray-head:10001')
