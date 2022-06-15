@@ -134,6 +134,8 @@ dmypy.json
 
 #downloaded_images
 images
+images2
+images3
 
 #Trained Models
 models
