@@ -30,7 +30,6 @@ class ReforestationModel:
 
         with open('./resources/arcGIS.cred', 'r') as creds:
             cred_dict = json.load(creds)
-            print(cred_dict)
             params = {
                 'client_id': cred_dict['id'],
                 'client_secret': cred_dict['secret'],
@@ -67,6 +66,7 @@ class ReforestationModel:
         image = image.reshape(1, 300, 300)
         model = tf.keras.models.load_model('./models/ncrp_reforestation_alpha.h5')
         prediction = model(image)
+        print('completed prediction with: ',         prediction.numpy().argmax() * 0.1)
         return {"prediction": prediction.numpy().argmax() * 0.1}
 
 
